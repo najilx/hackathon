@@ -100,7 +100,7 @@ window.analyzeCarbonFootprint = async function () {
   // Fetch chatbot response from Google Gemini API
   try {
     const response = await fetchChatbotResponse(miles, electricity, food);
-    chatWindow.innerHTML += `<p><strong>Chatbot:</strong></p><pre>${response}</pre>`;
+    chatWindow.innerHTML += `<p><strong></strong></p><pre>${response}</pre>`;
   } catch (error) {
     chatWindow.innerHTML += `<p><strong>Chatbot:</strong> Error fetching response</p>`;
     console.error("Error fetching chatbot response:", error);
