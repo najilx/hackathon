@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/calculator(2).png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script> <!-- Link to your external JavaScript file -->
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-leaf">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+            <span style="color: #16a34a;">Daily Carbon Footprint Calculator</span>
+        </h1>
+        <form id="carbonForm" onsubmit="calculateCarbonFootprint(event)">
+            <label for="miles">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-car">
+                    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.8a1 1 0 0 0-.8.4L2.3 11l-5.16.86a1 1 0 0 0-.84.99V16h3m16 0H2"></path>
+                    <path d="M6 13h.01M18 13h.01"></path>
+                </svg>
+                Miles driven (car):
+            </label>
+            <input type="number" id="miles" name="miles" placeholder="Enter miles driven" required><br>
+
+            <label for="electricity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lightbulb">
+                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                    <path d="M9 18h6"></path>
+                    <path d="M10 22h4"></path>
+                </svg>
+                Electricity usage (kWh):
+            </label>
+            <input type="number" id="electricity" name="electricity" placeholder="Enter electricity used" required><br>
+
+            <label for="food">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-utensils">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                    <path d="M7 2v20"></path>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+                </svg>
+                Meals (meat-based):
+            </label>
+            <input type="number" id="food" name="food" placeholder="Enter number of meals" required><br>
+            
+            <div class="cal">
+                <button type="submit">Calculate</button>
+            </div>
+            <!-- <button type="submit">Calculate</button> -->
+        </form>
+
+        <h2>Your Daily Carbon Footprint:</h2>
+        <div class="pie">
+            <canvas id="carbonChart"></canvas>
+        </div>
+        <!-- <canvas id="carbonChart"></canvas> -->
+    </div>
+
+    <div class="chatbot">
+        <h3>Chatbot Recommendations</h3>
+        <div id="chatWindow"></div>
+        <button id="analyzeButton" type="button" >Analyze</button>
+
+    </div>
+
+    
+</body>
+</html>
