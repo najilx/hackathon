@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User ID Card</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 16px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-fallback {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #9ca3af;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .email {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .member-info,
+        .loyalty-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #ffe0b2;
+            color: #ff6f00;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .badge svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 8px;
+            margin-bottom: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .progress-container:hover {
+            background-color: #d1d5db;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #34d399;
+            transition: width 0.5s ease;
+        }
+
+        .points-text {
+            font-size: 12px;
+            text-align: right;
+            color: #9ca3af;
+        }
+
+        /* Card Footer */
+        .card-footer {
+            padding: 20px;
+            background-color: #fff;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .claim-button {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #10b981;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .claim-button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .claim-button svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .claim-button:hover:not(:disabled) {
+            background-color: #059669;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card {
+                max-width: 100%;
+                margin: 0 10px;
+            }
+
+            .card-header,
+            .card-content,
+            .card-footer {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .avatar {
+                width: 64px;
+                height: 64px;
+            }
+
+            .avatar-fallback {
+                font-size: 20px;
+            }
+
+            .badge {
+                padding: 4px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <!-- Card Header -->
+        <div class="card-header">
+            <div class="avatar">
+                <img src="avatar_url.jpg" alt="User Avatar">
+                <div class="avatar-fallback">U</div>
+            </div>
+            <div class="user-info">
+                <h2 class="card-title">User</h2>
+                <p class="email">N/A</p>
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="card-content">
+            <!-- Member Info -->
+            <div class="member-info">
+                <span>Member since</span>
+                <span>2022-01-01</span>
+            </div>
+
+            <!-- Loyalty Points Info -->
+            <div class="loyalty-info">
+                <span>Loyalty Points</span>
+                <span class="badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.188 6.726a1 1 0 00.95.69h7.066c.969 0 1.372 1.24.588 1.81l-5.708 4.14a1 1 0 00-.364 1.118l2.188 6.726c.3.921-.755 1.688-1.54 1.118l-5.707-4.14a1 1 0 00-1.175 0l-5.707 4.14c-.784.57-1.838-.197-1.539-1.118l2.188-6.726a1 1 0 00-.364-1.118L2.845 12.1c-.783-.57-.38-1.81.588-1.81h7.066a1 1 0 00.95-.69l2.188-6.726z" />
+                    </svg>
+                    500 points
+                </span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 50%;"></div>
+            </div>
+            <p class="points-text">500/1000 points to next reward</p>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer">
+            <button class="claim-button" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                </svg>
+                Claim Rewards
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>
