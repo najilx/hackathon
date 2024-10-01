@@ -156,3 +156,12 @@ function formatResponse(responseText) {
 document
   .getElementById("analyzeButton")
   .addEventListener("click", analyzeCarbonFootprint);
+
+document
+  .getElementById("calculateButton")
+  .addEventListener("click", function () {
+    // Scroll to the section with ID "graph"
+    document.getElementById("graph").scrollIntoView({
+      behavior: "smooth", // Enables smooth scrolling
+    });
+  });
