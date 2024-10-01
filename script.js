@@ -21,9 +21,15 @@ window.calculateCarbonFootprint = function (event) {
     electricity: electricity * 0.92, // kg CO2 per kWh (approximate)
     food: food * 1.1, // kg CO2 per meat-based meal (approximate)
   };
-
   const totalEmissions =
     emissions.miles + emissions.electricity + emissions.food;
+
+  // Display total emissions
+  document.getElementById(
+    "totalEmissions"
+  ).innerHTML = `<strong>Total Emissions: ${totalEmissions.toFixed(
+    2
+  )} kg CO2</strong>`; // Added this line
 
   const data = {
     labels: ["🚗 Miles Driven", "💡 Electricity Used", "🍖 Meals (Meat-Based)"],
@@ -135,7 +141,7 @@ Here’s the data you can work with:
     2
   )} kg CO2. Can you suggest some simple dietary changes that can reduce this number?
 
-In your response, please include engaging recommendations for each category, and don’t forget to emphasize the benefits of reducing my carbon footprint to combat climate change! Make it fun and interactive while keeping the recommendations clear and easy to implement.
+In your response, please include engaging recommendations for each category, and don’t forget to emphasize the benefits of reducing my carbon footprint to combat climate change! Make it fun and interactive while keeping the recommendations clear and easy to implement.Also include my total carbon emmision value.
 
 `;
 
