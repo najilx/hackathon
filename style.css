@@ -96,20 +96,21 @@ button:active {
     margin-bottom: 20px;
 }
 
-.pie {
+/* .pie {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    height: 300px;
-}
+    height: 500px;
+} */
 
 #carbonChart {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     max-width: 100%;
     max-height: 100%;
 }
+
 
 
 
@@ -125,6 +126,9 @@ button:active {
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .chatbot:hover {
@@ -204,3 +208,17 @@ button:active {
     }
 }
 
+#calculateButton {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#calculateButton:hover {
+    background-color: #3E8E41;
+}
