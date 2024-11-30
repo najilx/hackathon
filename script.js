@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
 // Replace this with the API key from .env
-const API_KEY = "AIzaSyBy7mciglZiD0jpWnclXARYXSVqBhAys2o";  // correct this for linking the correct api key
+const API_KEY = "API-KEY";  // correct this for linking the correct api key
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
